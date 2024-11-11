@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>mod_user_list</name>
+    <author>Your Name</author>
+    <version>1.0.0</version>
+    <description>Module to display a list of users and their details.</description>
+    <files>
+        <filename module="mod_user_list">mod_user_list.php</filename>
+          <filename>src/Helper/UserListHelper.php</filename> 
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <!-- User Group Filter -->
+            <fieldset name="user_filter" label="User Group Filter">
+                <field name="user_groups" type="usergrouplist" label="Select User Groups" multiple="true" />
+            </fieldset>
+
+            <!-- Display Fields Selection -->
+            <fieldset name="display_fields" label="Display Fields">
+                <field name="show_full_name" type="radio" default="1" label="Show Full Name" description="Display Full Name">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="show_username" type="radio" default="1" label="Show Username" description="Display Username">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="show_email" type="radio" default="0" label="Show Email" description="Display Email Address">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="show_registration_date" type="radio" default="1" label="Show Registration Date" description="Display Registration Date">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="show_last_login" type="radio" default="1" label="Show Last Login Date" description="Display Last Login Date">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="show_user_group" type="radio" default="1" label="Show User Group" description="Display User Group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+
+            <!-- Access Control -->
+            <fieldset name="access_control" label="Access Control">
+                 <!-- Access Control Field -->
+                <field name="restrict_logged_in"
+                       type="radio"
+                       label="Restrict to Logged-in Users"
+                       description="Only show module content to logged-in users."
+                       default="1">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+
+            
+        </fields>
+    </config>
+</extension>
